@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="circle_text_path">
+  
+    <path id="circle_path" d="M 100 100 m -80 0 a 80 80 0 1 0 160 0 a 80 80 0 1 0 -160 0" stroke="red" stroke-width="0" fill="none" />
+  
+    <text id="rotate_text" style="fill: green; font-size: 18px; letter-spacing: 3px;">
+      
+      <animateTransform
+        attributeName="transform"
+        begin="0s"
+        dur="10s"
+        type="rotate"
+        from="0 100 100"
+        to="360 100 100"
+        repeatCount="indefinite" />
+      <textPath href="#circle_path">
+        <tspan stroke="black" dx="0">TSMC</tspan>
+        <tspan stroke="blue" dx="16"><a href="https://www.google.com" target="_blank">Google</a></tspan>
+        <tspan stroke="brown" dx="16">LV</tspan>
+        <tspan stroke="purple" dx="16">Gucci</tspan>
+        <tspan stroke="silver" dx="16">Apple</tspan>
+        <tspan stroke="green" dx="16">NVDIA</tspan>
+      </textPath>
+      
+    </text>
+  
+  </svg>

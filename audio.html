@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            color: blue;
+        }
+
+        /* #btn_play_and_pause {
+            background: none;
+            border: 0;
+            cursor: pointer;
+        }  */
+    </style>
+</head>
+
+<body>
+    <div>
+        beautiful
+        <audio id="the_audio">
+            <source
+                src="https://dictionary.cambridge.org/zht/media/%E8%8B%B1%E8%AA%9E-%E6%BC%A2%E8%AA%9E-%E7%B9%81%E9%AB%94/us_pron/e/eus/eus70/eus70469.mp3"
+                type="audio/mpeg">
+        </audio>
+    </div>
+    <button type="button" id="btn_play_and_pause"><i class="fa-regular fa-circle-play"></i></button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script>
+        let the_audio_el = document.getElementById("the_audio");
+
+        let btn_play_and_pause_el = document.getElementById("btn_play_and_pause");
+        btn_play_and_pause_el.addEventListener("click", function () {
+
+            if (this.classList.contains("playing")) {
+                this.classList.remove("playing");
+                this.innerHTML = '<i class="fas fa-play fa-2x"></i>';
+                the_audio_el.pause();
+            } else {
+                this.classList.add("playing");
+                this.innerHTML = '<i class="fas fa-pause fa-2x"></i>';
+                the_audio_el.play();
+            }
+
+        });
+
+        the_audio_el.addEventListener("ended", function () {
+            btn_play_and_pause_el.classList.remove("playing");
+            btn_play_and_pause_el.innerHTML = '<i class="fas fa-play fa-2x"></i>';
+        });
+    </script>
+</body>
+
+</html>

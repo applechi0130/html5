@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>E 網頁</h1>
+    <script>
+      // document.referrer: 可取得是哪個網址連過來。
+      // 但從 https 網站 連到 http 網站，以下這行會印出空字串，因為 http 網站較不安全。
+      // console.log(document.referrer);
+      
+      // 以下的 if 判斷：是判斷是否從外部網站進來自己網站
+      //console.log(document.referrer); // ""
+      //console.log(location.host);     // 127.0.0.1:5500
+      if( !(document.referrer).includes(location.host) ){  
+        // 上面是false
+        alert("從外站進來這頁");
+
+        // 將目前網址先暫存(e.html)
+        var current_url = location.href; // e.html
+
+        // 將目前瀏覽歷程的 url 設定為 a.html // referrer → a.html → e.html
+        history.replaceState(null, null, "a.html");
+
+        // 新增一個瀏覽歷程，為 current_url
+        history.pushState(null, null, current_url);
+      }
+      
+      window.addEventListener("popstate", function(e){
+        // console.log("123");
+        location.reload();
+      });
+    </script>
+  </body>
+</html>
